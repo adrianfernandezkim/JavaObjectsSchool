@@ -151,8 +151,8 @@ public class ui {
         }
         System.out.println("How many students would you like to add?");
         numStud = in.nextInt();
-        if (numStud > firstClass.maxSize) {
-            System.out.println("That is too many students for the class! The maximum class size is " + firstClass.maxSize + " students.");
+        if (numStud > classChoice.maxSize) {
+            System.out.println("That is too many students for the class! The maximum class size is " + classChoice.maxSize + " students.");
             System.out.println("How many students would you like to add?");
             numStud = in.nextInt();
             adder();
@@ -209,6 +209,15 @@ public class ui {
 
             if(studArray.get(i).firstName.toLowerCase().equals(idFirst) && studArray.get(i).lastName.toLowerCase().equals(idLast)) {
                 System.out.println(idFirst + "'s id number is " + studArray.get(i).id);
+                for(int j = 0; i<classes.size(); i++){
+                    for(int k = 0; k<classes.get(j).students.size(); k++){
+                        if(classes.get(j).students.get(k).firstName.equals(idFirst) && classes.get(j).students.get(k).lastName.equals(idLast)){
+                            classChoice = classes.get(j);
+                        }
+                    }
+
+
+                }
                 exist = true;
             }
         }
@@ -219,11 +228,11 @@ public class ui {
         }
         System.out.println("Now type the student id of the student who you'd like to remove!");
         int classID = in.nextInt();
-        firstClass.removeStudent(classID);
+        classChoice.removeStudent(classID);
         System.out.println("Let's see if it worked!");
         System.out.println("Type in the id of the student you just removed to search for the student!");
         int removeID = in.nextInt();
-        System.out.println(firstClass.search(removeID));
+        System.out.println(classChoice.search(removeID));
         firstMenu();
     }
     public static void awesomeness(){
@@ -258,12 +267,11 @@ public class ui {
         String studLast =  in.next().toLowerCase();
         for(int i = 0; i<classes.size(); i++) {
             classes.get(i).search(classes.get(i).getID(studFirst, studLast));
-            System.out.println(firstClass.search(firstClass.getID(studFirst, studLast)));
+            System.out.println(classes.get(i).search(classes.get(i).getID(studFirst, studLast)));
         }
         firstMenu();
 
-
-
     }
+
 }
 
