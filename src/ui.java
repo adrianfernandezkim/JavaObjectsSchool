@@ -1,14 +1,3 @@
-/**
- * Created by h205p2 on 9/22/17.
- */
-
-
-
-
-
-
-// DO THE CHECK INT FUNCTION AT THE BOTTOMMMMM
-
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -133,7 +122,7 @@ public class ui {
         System.out.println();
         System.out.println("What class do they teach?");
 
-            String teacherClass = in.next();
+        String teacherClass = in.next();
 
         firstTeacher = new Teacher(teacherFirst, teacherLast);
         System.out.println("You've created " + firstTeacher.firstName + " the teacher!");
